@@ -13,19 +13,6 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/i,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-            },
-          },
-          "sass-loader",
-        ],
-      },
-      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },

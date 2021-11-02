@@ -12,6 +12,23 @@ module.exports = merge(common, {
   output: {
     publicPath: "/",
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/i,
+        use: [
+          "style-loader", // 3. insert JS string into DOM
+          {
+            loader: "css-loader", // 2. turn scss into JS string (Common JS)
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader", // 1. load SCSS | turn into CSS
+        ],
+      },
+    ],
+  },
   devServer: {
     historyApiFallback: true,
   },

@@ -2,6 +2,7 @@ const path = require("path");
 const common = require("./webpack.config");
 const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -10,5 +11,28 @@ module.exports = merge(common, {
     filename: "main.[contenthash].js",
     publicPath: "/",
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/i,
+        use: [
+          MiniCssExtractPlugin.loader, // 3. extract CSS into files instead of JS string
+          {
+            loader: "css-loader", // 2. turn scss into JS string (Common JS)
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader", // 1. load SCSS | turn into CSS
+        ],
+      },
+    ],
+  },
 });
+
+// It takes time to extract the CSS into files, so it is not ideal for development purposes
+// But it is more performant, that is why we use it for production
