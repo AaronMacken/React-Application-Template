@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 export default class Dynamic extends Component {
   componentDidMount() {
-    console.log("mounted!", this.props);
+    console.log("axios request using ID: ", this.props.match.params.id);
   }
 
   render() {
-    return <div>Dynamic Page: {this.props.match.params.id} </div>;
+    return <h1>Dynamic Page: {this.props.match.params.id} </h1>;
   }
 }

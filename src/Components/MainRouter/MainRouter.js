@@ -4,14 +4,18 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import HomePage from "../../Pages/Home";
 import DynamicPage from "../../Pages/Dynamic";
 
+import Header from "../Header";
+import Footer from "../Footer";
+
 class MainRouter extends Component {
   sampleLandingComponent = () => {
-    return <h1>DERP</h1>;
+    return <h1>Sample Landing Page</h1>;
   };
 
   render() {
     return (
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/" component={this.sampleLandingComponent} />
           <Route path="/home" component={HomePage} />
@@ -20,6 +24,7 @@ class MainRouter extends Component {
             <Redirect to="/" />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     );
   }
