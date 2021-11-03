@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      // this plugin will minify your HTML if `mode = production`
       template: "./src/index.html",
     }),
   ],

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light ps-3">
         <NavLink className="navbar-brand" to="/">
           Navbar
         </NavLink>

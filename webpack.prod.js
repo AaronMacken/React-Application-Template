@@ -3,6 +3,9 @@ const common = require("./webpack.config");
 const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+// Don't need to `npm i` webpack uses it by default for JS minimification
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
   mode: "production",
@@ -10,6 +13,12 @@ module.exports = merge(common, {
     path: path.join(__dirname, "/dist"),
     filename: "main.[contenthash].js",
     publicPath: "/",
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // minify your CSS
+      new TerserPlugin(), // This is used by default, but needs to explicitly be re-added for JS minificaiton
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
