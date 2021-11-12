@@ -1,6 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const Paths = require('./config/paths');
+const { APP_SRC } = require("./config/paths");
+
 module.exports = {
   entry: path.resolve(__dirname, "./src/index.js"),
   module: {
@@ -24,4 +27,12 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  resolve: {
+    alias: {
+      components: Paths.COMPONENTS_DIR,
+      context: Paths.CONTEXT_DIR,
+      data: Paths.DATA_DIR,
+      pages: Paths.PAGES_DIR
+    }
+  }
 };

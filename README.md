@@ -5,7 +5,7 @@
 The goal of this React Application Template is to provide the necessary boilerplate code that will commonly be required when starting a new project. The technologies used are:
 
 - React
-- Redux
+- Mobx
 - React Router
 - Webpack / Babel
 - Axios

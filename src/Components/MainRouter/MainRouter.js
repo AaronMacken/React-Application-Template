@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import HomePage from "../../Pages/Home";
-import DynamicPage from "../../Pages/Dynamic";
+import HomePage from "pages/Home";
+import DynamicPage from "pages/Dynamic";
 
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "components/Header";
+import Footer from "components/Footer";
 
 class MainRouter extends Component {
   sampleLandingComponent = () => {
