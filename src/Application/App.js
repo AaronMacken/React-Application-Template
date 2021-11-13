@@ -11,6 +11,7 @@ const App = () => {
   return (
     <RootStoreContext.Provider value={rootStore}>
       <div className={styles.app}>
+        <h1>test</h1>
         <MainRouter />
       </div>
     </RootStoreContext.Provider>
