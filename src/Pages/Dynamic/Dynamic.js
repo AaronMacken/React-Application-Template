@@ -6,6 +6,7 @@ export default class Dynamic extends Component {
   }
 
   render() {
+    console.log("derp?", this.props.derp);
     return <h1>Dynamic Page: {this.props.match.params.id} </h1>;
   }
 }

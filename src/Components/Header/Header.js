@@ -23,16 +23,16 @@ export default class Header extends Component {
           <ul className="navbar-nav">
             <li className="nav-item active">
               <NavLink className="nav-link" to="/">
-                Landing
+                Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/home">
-                Home
+              <a className="nav-link" href="/products">
+                Products
               </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/data/randomIdFromProduct">
+              <NavLink className="nav-link" to="/data/random_id_from_product">
                 Dynamic Page
               </NavLink>
             </li>

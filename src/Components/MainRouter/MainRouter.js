@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import HomePage from "pages/Home";
+import ProductsPage from "pages/Products";
 import DynamicPage from "pages/Dynamic";
 
 import Header from "components/Header";
 import Footer from "components/Footer";
 
 class MainRouter extends Component {
-  sampleLandingComponent = () => {
-    return <h1>Sample Landing Page</h1>;
+  sampleHomeComponent = () => {
+    return <h1>Sample Home Page</h1>;
   };
 
   render() {
@@ -17,9 +17,9 @@ class MainRouter extends Component {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/" component={this.sampleLandingComponent} />
-          <Route path="/home" component={HomePage} />
-          <Route path="/data/:id" render={(props) => <DynamicPage {...props} />} />
+          <Route exact path="/" component={this.sampleHomeComponent} />
+          <Route path="/products" component={ProductsPage} />
+          <Route path="/data/:id" render={(props) => <DynamicPage derp="derp" {...props} />} />
           <Route path="*">
             <Redirect to="/" />
           </Route>

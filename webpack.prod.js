@@ -4,6 +4,7 @@ const { merge } = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 // Don't need to `npm i` webpack uses it by default for JS minimification
 const TerserPlugin = require("terser-webpack-plugin");
 
@@ -23,6 +24,11 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: ["optipng", "mozjpeg", "svgo"],
+      },
+    }),
   ],
   module: {
     rules: [
